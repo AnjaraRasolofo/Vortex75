@@ -1,0 +1,61 @@
+:root {
+    --vortex-dark: #1F2A40;
+    --vortex-blue: #4F8DFD;
+    --vortex-green: #00C896;
+    --vortex-red: #FF5E5B;
+    --vortex-light: #c3c7cc;
+    --vortex-gray: #6B7280;
+}
+
+.feature-card {
+    background-color: var(--vortex-light);
+    border: 2px solid var(--vortex-blue);
+    color: var(--vortex-dark);
+    transition: 0.3s ease;
+}
+
+.feature-card:hover {
+    background-color: var(--vortex-blue);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background: var(--vortex-gray);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--vortex-light);
+}
+
+.section-biblio .btn-primary, .section-actu .btn-primary {
+    background-color: #00C896;
+    border: none;
+}
+
+.section-biblio .hero-img {
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transform: rotate(-2deg);
+    transition: 0.3s ease;
+}
+
+.section-actu .hero-img {
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transform: rotate(2deg);
+    transition: 0.3s ease;
+}
+
+.section-biblio .hero-img:hover, .section-actu .hero-img:hover {
+    transform: rotate(0deg) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
