@@ -1,11 +1,53 @@
 :root {
     --vortex-dark: #1F2A40;
-    --vortex-blue: #4F8DFD;
+    --vortex-blue: #0d6efd; /*#4F8DFD;*/
     --vortex-green: #00C896;
     --vortex-red: #FF5E5B;
     --vortex-light: #c3c7cc;
     --vortex-gray: #6B7280;
 }
+
+.navbar-custom {
+    height: 150px;
+    /*background-color: #e9ecef; /* gris clair */
+    background: linear-gradient(to right, var(--vortex-dark), #203a43, #2c5364);
+  }
+
+  .navbar-nav {
+    margin: 0 auto; 
+  }
+
+  .navbar-nav a {
+    color: var(--vortex-light);
+  }
+
+  .navbar-nav .nav-link.active {
+    color: var(--vortex-blue); /* bleu Bootstrap par défaut */
+    font-weight: bold;
+    
+    width: auto;
+  }
+
+  .nav-link.active {
+    color: #0d6efd !important; /* Bleu Bootstrap */
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .menu-logo {
+    height: 100%;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: black;
+    font-size: 3em;
+  }
+
+  .menu-logo span {
+    color: var(--vortex-red);
+  }
 
 .feature-card {
     background-color: var(--vortex-light);
@@ -59,3 +101,7 @@
     transform: rotate(0deg) scale(1.03);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
+
+.nav-link:hover i {
+    color: #0d6efd;
+  }

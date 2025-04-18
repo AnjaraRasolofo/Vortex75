@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    public function showForm()
+    public function index()
     {
         return view('fronts.contact');
     }
 
     public function send() {
-        
+
     }
 }

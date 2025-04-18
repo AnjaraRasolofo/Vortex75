@@ -180,7 +180,7 @@
                         <img src="{{ asset('images/whatsapp.png') }}" alt="whatsapp_icon" class="mx-auto mb-3" style="width: 60px;">
                         <h4 class="mb-2">Assistance WhatsApp</h4>
                         <p class="mb-3">Ajoutez-nous sur WhatsApp pour une réponse instantanée.</p>
-                        <a href="https://wa.me/261340000000" target="_blank" class="btn btn-success">Nous écrire</a>
+                        <a href="https://wa.me/261324854306" target="_blank" class="btn btn-success">Nous écrire</a>
                     </div>
                 </div>
     
@@ -196,46 +196,5 @@
             </div>
         </div>
     </section>
-    
-    <footer class="bg-dark text-light pt-5 pb-3 mt-5">
-        <div class="container">
-            <div class="row">
-    
-                <!-- Logo & description -->
-                <div class="col-md-4 mb-4">
-                    <h4 class="fw-bold text-white">Vortex75</h4>
-                    <p class="text-light">La plateforme dédiée au trading des indices synthétiques. Formations, outils, coaching & plus.</p>
-                </div>
-    
-                <!-- Liens rapides -->
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-white mb-3">Navigation</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="{{ route('home') }}" class="text-decoration-none text-light">Accueil</a></li>
-                        <li><a href="{{ route('guides') }}" class="text-decoration-none text-light">Guides</a></li>
-                        <li><a href="{{ route('ressources') }}" class="text-decoration-none text-light">Coaching</a></li>
-                        <li><a href="{{ route('actualites') }}" class="text-decoration-none text-light">Actualités</a></li>
-                        <li><a href="{{ route('contact') }}" class="text-decoration-none text-light">Contact</a></li>
-                    </ul>
-                </div>
-    
-                <!-- Réseaux sociaux -->
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-white mb-3">Suivez-nous</h5>
-                    <a href="#" class="text-light me-3"><i class="bi bi-facebook fs-4"></i></a>
-                    <a href="#" class="text-light me-3"><i class="bi bi-instagram fs-4"></i></a>
-                    <a href="#" class="text-light"><i class="bi bi-twitter-x fs-4"></i></a>
-                </div>
-            </div>
-    
-            <hr class="border-secondary">
-    
-            <div class="text-center text-secondary small">
-                &copy; {{ date('Y') }} Vortex75 — Tous droits réservés.
-            </div>
-        </div>
-    </footer>
-    
-    
     
 @endsection
