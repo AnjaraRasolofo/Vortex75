@@ -5,7 +5,7 @@
         <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
             
             <div class="text-center text-md-start">
-                <h1 class="display-4 fw-bold">Bienvenue sur Vortex75</h1>
+                <h1 class="display-4 fw-bold">Maîtrisez la volatilité, maîtrisez les marchés !</h1>
                 <p class="lead text-muted">Apprenez à maîtriser les indices synthétiques avec nos outils, formations et coaching personnalisés.</p>
 
                 <div class="d-flex text-center justify-content-center">
