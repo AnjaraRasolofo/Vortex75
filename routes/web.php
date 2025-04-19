@@ -15,7 +15,7 @@ use App\Http\Controllers\ContactController;
 
 // Page d'accueil
 Route::get('/', function () {
-    return view('welcome'); 
+    return view('home'); 
 })->name('home');
 
 // Coaching
@@ -50,5 +50,5 @@ require __DIR__.'/auth.php';
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

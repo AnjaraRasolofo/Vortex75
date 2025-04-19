@@ -9,7 +9,7 @@
                 <p class="lead text-muted">Apprenez à maîtriser les indices synthétiques avec nos outils, formations et coaching personnalisés.</p>
 
                 <div class="d-flex text-center justify-content-center">
-                    <a href="{{ route('guides') }}" class="btn btn-primary btn-lg mt-3">Commencer maintenant</a>
+                    <a href="{{ route('guides') }}" class="btn btn-primary btn-lg mt-3 cta">Commencer maintenant</a>
                 </div>
             </div>
             <div class="mt-4 mt-md-0">
@@ -42,7 +42,7 @@
                                 <div class="display-4 mb-3"> <img src="{{ asset('images/'.$feature['icon']) }}" alt="graduation-icon" class="features-icon"></div>
                                 <h5 class="card-title">{{ $feature['title'] }}</h5>
                                 <p class="card-text text-muted">{{ $feature['desc'] }}</p>
-                                <a href="#" class="btn">{{$feature['btn']}}</a>
+                                <a href="#" class="btn-feature">{{$feature['btn']}}</a>
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
     <section class="py-5 bg-light section-biblio">
         <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-between">
             <!-- Texte -->
-            <div class="text-center text-lg-start mb-4 mb-lg-0 mr-4">
+            <div class="text-center text-lg-start mb-4 mb-lg-0 p-4">
                 <h1 class="display-5 fw-bold">Tutoriels sur le trading</h1>
                 <p class="lead text-muted">Que tu sois débutant ou trader expérimenté, cette section regroupe des guides pratiques et des analyses approfondies pour t’aider à maîtriser les stratégies de trading, notamment sur les indices de volatilité comme le VIX75.</p>
                 <p>Explore les tutoriels et améliore tes compétences dès maintenant !</p>
@@ -84,7 +84,7 @@
             </div>
 
             <!-- Texte -->
-            <div class="text-center text-lg-start mb-4 mb-lg-0">
+            <div class="text-center text-lg-end mb-4 mb-lg-0 p-4">
                 <h1 class="display-5 fw-bold">Ne manquez aucune information essentielle</h1>
                 <p class="lead text-muted">Vous retrouverez des mises à jour en temps réel, des analyses techniques et fondamentales, ainsi que des conseils d’experts pour vous guider dans vos prises de position. Nous couvrirons également les évolutions des indices de volatilité, un domaine clé pour les traders actifs sur Deriv et d'autres plateformes spécialisées.</p>
                 <p>Restez connectés avec Vortex75 et ne manquez aucune information essentielle pour optimiser votre trading !</p>
