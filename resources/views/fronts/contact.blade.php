@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
             <!-- Formulaire -->
             <div class="col-md-6">
-                <form action="contact.send" method="POST">
+                <form action="/contact" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Nom complet</label>

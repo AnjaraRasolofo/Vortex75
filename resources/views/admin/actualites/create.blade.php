@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Créer un article</h1>
+    <a href="{{ route('admin.actualites.show', $actualite->id) }}" class="btn btn-success mb-3" target="_blank">Voir l'article</a>
 
     <form action="{{ route('admin.actualites.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -17,7 +18,7 @@
         {{-- Contenu --}}
         <div class="mb-3">
             <label for="contenu" class="form-label">Contenu</label>
-            <textarea name="contenu" id="contenu" class="form-control" rows="5" required>{{ old('contenu') }}</textarea>
+            <textarea name="contenu" id="contenu" class="form-control" rows="5">{{ old('contenu') }}</textarea>
             @error('contenu') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
 

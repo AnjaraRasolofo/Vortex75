@@ -8,7 +8,7 @@ use App\Http\Controllers\ActualiteController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controller\Admin\AdminController;
 use App\Http\Controllers\CategorieController;
-
+use App\Http\Controllers\ChatGPTController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,22 +39,28 @@ Route::get('/actualites', [ActualiteController::class, 'index'])->name('actualit
 
 Route::get('/actualite/{slug}', [ActualiteController::class, 'show'])->name('actualites.show'); 
 
+Route::post('/actualite/{slug}', [ActualiteController::class, 'save'])->name('actualites.save'); 
+
 // Contact
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+
+Route::get('/chat', [ChatGPTController::class, 'index'])->name('chat.index');
+Route::post('/chat', [ChatGPTController::class, 'ask'])->name('chat.ask');
 
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
 // Utilisateur + roles
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/admin', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin');
+    Route::get('/', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin');
     Route::resource('actualites', App\Http\Controllers\Admin\ActualiteController::class);
     Route::resource('categories', App\Http\Controllers\Admin\CategorieController::class);
     Route::resource('ressources', App\Http\Controllers\Admin\RessourceController::class);
+    Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
 });
 
 // Authentification (login, register, logout, etc.)
 require __DIR__.'/auth.php';
 
 
-Auth::routes();
+//Auth::routes();
 

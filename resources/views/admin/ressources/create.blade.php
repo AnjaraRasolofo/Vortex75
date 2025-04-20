@@ -27,7 +27,7 @@
         {{-- Contenu --}}
         <div class="mb-3">
             <label for="contenu" class="form-label">Contenu</label>
-            <textarea name="contenu" id="contenu" class="form-control" rows="5" required>{{ old('contenu') }}</textarea>
+            <textarea name="contenu" id="contenu" class="form-control" rows="5">{{ old('contenu') }}</textarea>
             @error('contenu') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
 

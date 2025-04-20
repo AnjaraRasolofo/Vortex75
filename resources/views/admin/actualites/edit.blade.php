@@ -1,10 +1,13 @@
 @extends('layouts.admin')
 
+@section('title', 'Modifier l\'article : ' . $actualite->titre)
+
 @section('content')
 <div class="container">
-    <h1>Modifier l’article</h1>
+   
+    <button id="btn-save" class="btn btn-warning mb-3" data-id="{{ $actualite->id }}">Sauvegarder</button>
 
-    <form action="{{ route('admin.actualites.update', $actualite->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.actualites.update', $actualite->id ) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -74,4 +77,5 @@
         <a href="{{ route('admin.actualites.index') }}" class="btn btn-secondary">Annuler</a>
     </form>
 </div>
+
 @endsection

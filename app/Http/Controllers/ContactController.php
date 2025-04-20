@@ -20,7 +20,7 @@ class ContactController extends Controller
             'message' => 'required'
         ]);
     
-        Mail::to('ton-email@example.com')->send(new ContactMessage($data));
+        Mail::to('admin@vortex75.com')->send(new ContactMessage($data));
     
         return back()->with('success', 'Message envoyé avec succès !');
     }

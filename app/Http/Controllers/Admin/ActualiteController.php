@@ -81,7 +81,8 @@ class ActualiteController extends Controller
      */
     public function show($id)
     {
-        
+        $actualite = Actualite::where('id', $id)->firstOrFail();
+        return view('admin.actualites.show', compact('actualite'));
     }
 
     /**
@@ -136,7 +137,11 @@ class ActualiteController extends Controller
             'status' => $request->status,
         ]);
 
-        return redirect()->route('admin.actualites.index')->with('success', 'Article mis à jour.');
+        // \Log::info('DATA:', $request->all());
+
+        return back()->with('success', 'Article mis à jour !');
+
+        //return response()->json(['message' => 'Mise à jour réussie']);
     }
 
     /**
