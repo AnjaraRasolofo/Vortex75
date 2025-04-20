@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
             <!-- Formulaire -->
             <div class="col-md-6">
-                <form action="#" method="POST">
+                <form action="contact.send" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Nom complet</label>
@@ -37,7 +37,7 @@
                     <h5>Informations</h5>
                     <p><i class="bi bi-envelope me-2"></i> contact@vortex75.com</p>
                     <p><i class="bi bi-geo-alt me-2"></i> Antananarivo, Madagascar</p>
-                    <p><i class="bi bi-phone me-2"></i> +261 34 00 000 00</p>
+                    <p><i class="bi bi-phone me-2"></i> +261 32 95 235 47</p>
 
                     <h6 class="mt-4">Suivez-nous</h6>
                     <a href="#" class="me-3"><i class="bi bi-facebook fs-4"></i></a>

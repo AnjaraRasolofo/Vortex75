@@ -24,16 +24,16 @@
             <div class="row g-4">
                 @foreach ([
                     ['icon' => 'line-graph.png', 'title' => 'Analyse de Marché en temps réel',
-                     'desc' => 'Recevez des analyses détaillées des tendances du marché.','btn'=>'En savoir plus'],
+                     'desc' => 'Recevez des analyses détaillées des tendances du marché.','btn'=>'En savoir plus','url'=>'/categorie/1'],
                     ['icon' => 'ai.png', 'title' => 'Trading Automatisé',
-                     'desc' => 'Utilisez des bots intelligents pour optimiser vos trades.','btn'=>'Découvrir'],
+                     'desc' => 'Utilisez des bots intelligents pour optimiser vos trades.','btn'=>'Découvrir','url'=>'/categorie/3'],
                     ['icon' => 'graduation.png', 'title' => 'Formation Trading',
-                     'desc' => 'Apprenez les stratégies gagnantes pour mieux trader.','btn'=>'Apprendre'],
+                     'desc' => 'Apprenez les stratégies gagnantes pour mieux trader.','btn'=>'Apprendre','url'=>'/categorie/7'],
                     ['icon' => 'loan.png', 'title' => 'Gestion du Capital',
-                     'desc' => 'Apprenez à gérer efficacement votre portefeuille d’investissement.','btn'=>'Voir plus'],
-                    ['icon' => 'attention.png', 'title' => 'Alertes de Trading', 
-                    'desc' => 'Recevez des alertes en temps réel pour ne manquer aucune opportunité.','btn'=>'S\'inscrire'],
-                    ['icon' => 'strategy.png', 'title' => 'Sécurité & Stratégie', 
+                     'desc' => 'Apprenez à gérer efficacement votre portefeuille d’investissement.','btn'=>'Voir plus', 'url'=>'/categorie/2'],
+                    ['icon' => 'attention.png', 'title' => 'Alertes de Trading',
+                    'desc' => 'Recevez des alertes en temps réel pour ne manquer aucune opportunité.','btn'=>'S\'inscrire','url'=>'/categorie/1'],
+                    ['icon' => 'strategy.png', 'title' => 'Sécurité & Stratégie','url'=>'/categorie/4', 
                     'desc' => 'Protégez vos investissements avec des stratégies avancées.','btn'=>'Commencer'],
                 ] as $feature)
                     <div class="col-12 col-sm-6 col-lg-4">
@@ -42,7 +42,7 @@
                                 <div class="display-4 mb-3"> <img src="{{ asset('images/'.$feature['icon']) }}" alt="graduation-icon" class="features-icon"></div>
                                 <h5 class="card-title">{{ $feature['title'] }}</h5>
                                 <p class="card-text text-muted">{{ $feature['desc'] }}</p>
-                                <a href="#" class="btn-feature">{{$feature['btn']}}</a>
+                                <a href="{{ $feature['url'] }}" class="btn-feature">{{$feature['btn']}}</a>
                             </div>
                         </div>
                     </div>

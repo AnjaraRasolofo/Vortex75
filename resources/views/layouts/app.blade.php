@@ -69,7 +69,7 @@
                                     {{ Auth::user()->name }}
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
-                                    <li><a class="dropdown-item" href="{{ route('home') }}">Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('/admin') }}">Administration</a></li>
                                     <li>
                                         <form action="{{ route('logout') }}" method="POST" class="d-inline">
                                             @csrf

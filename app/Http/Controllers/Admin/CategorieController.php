@@ -89,7 +89,7 @@ class CategorieController extends Controller
      */
     public function edit($id)
     {
-        $categorie = Categorie::where('id',$id);
+        $categorie = Categorie::where('id',$id)->firstOrFail();
         return view('admin.categories.edit', compact('categorie'));
     }
 
@@ -110,13 +110,13 @@ class CategorieController extends Controller
         $slug = Str::slug($request->nom);
     
         // Vérifie si le slug existe déjà, et le modifier si nécessaire
-        if (Categorie::where('slug', $slug)->exists() && $slug !== $categorie->slug) {
+        /*if (Categorie::where('slug', $slug)->exists() && $slug !== $categorie->slug) {
             $slug = $slug . '-' . Str::random(6);  // Ajoute un suffixe unique pour éviter les conflits
-        }
+        }*/
     
         $categorie->update([
             'nom' => $request->nom,
-            'slug' => $slug,
+            'slug' => Str::slug($request->nom),
         ]);
     
         return redirect()->route('admin.categories.index')->with('success', 'Catégorie mise à jour.');
@@ -128,9 +128,10 @@ class CategorieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($categorie)
+    public function destroy($id)
     {
 
+        $categorie = Categorie::findOrFail($id);
         $categorie->delete();
 
         return redirect()->route('admin.categories.index')->with('success', 'Categorie supprimé.');
