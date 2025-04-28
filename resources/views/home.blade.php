@@ -156,6 +156,12 @@
         </div>
     </section>
     
+    @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
+        </div>
+    @endif
     
     <section class="py-5 bg-light">
         <div class="container">
@@ -166,8 +172,9 @@
                 <div class="col-md-4">
                     <div class="card text-center h-100 p-4 shadow-sm">
                         <img src="{{ asset('images/mail.png') }}" alt="email_icon" class="mx-auto mb-3" style="width: 60px;">
-                        <h4 class="mb-2">Envoyez-nous un email</h4>
-                        <form action="#" method="POST" class="d-flex flex-column gap-2 mt-3">
+                        <h4 class="mb-2">Abonnez-vous à notre newsletter</h4>
+                        <form action="{{ route('newsletter.store') }}" method="POST" class="d-flex flex-column gap-2 mt-3">
+                            @csrf
                             <input type="email" name="email" class="form-control" placeholder="Votre email" required>
                             <button type="submit" class="btn btn-primary">Soumettre</button>
                         </form>
@@ -180,7 +187,7 @@
                         <img src="{{ asset('images/whatsapp.png') }}" alt="whatsapp_icon" class="mx-auto mb-3" style="width: 60px;">
                         <h4 class="mb-2">Assistance WhatsApp</h4>
                         <p class="mb-3">Ajoutez-nous sur WhatsApp pour une réponse instantanée.</p>
-                        <a href="https://wa.me/261324854306" target="_blank" class="btn btn-success">Nous écrire</a>
+                        <a href="https://wa.me/261329523547" target="_blank" class="btn btn-success">Nous écrire</a>
                     </div>
                 </div>
     
@@ -196,5 +203,29 @@
             </div>
         </div>
     </section>
+
+
+    <!-- Modal d'abonnement -->
+    <div class="modal fade" id="popupAbonnement" tabindex="-1" aria-labelledby="popupAbonnementLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="popupAbonnementLabel">Abonnez-vous à nos signaux de trading</h5>
+          <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
+        </div>
+        <div class="modal-body text-center">
+          <p>Recevez des signaux exclusifs sur le marché de la volatilité ! Testez gratuitement pendant 7 jours.</p>
+          <form action="{{ route('abonnement.newsletter') }}" method="POST">
+            @csrf
+            <div class="mb-3">
+              <input type="email" name="email" class="form-control" placeholder="Votre adresse email" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Je m'abonne</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
     
 @endsection

@@ -9,6 +9,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controller\Admin\AdminController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ChatGPTController;
+use App\Http\Controllers\NewsletterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,8 @@ Route::post('/chat', [ChatGPTController::class, 'ask'])->name('chat.ask');
 
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
+Route::post('/newsletter', [NewsletterController::class, 'store'])->name('newsletter.store');
+
 // Utilisateur + roles
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin');
@@ -56,11 +59,13 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('categories', App\Http\Controllers\Admin\CategorieController::class);
     Route::resource('ressources', App\Http\Controllers\Admin\RessourceController::class);
     Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
+    Route::resource('newsletters', App\Http\Controllers\Admin\NewsletterController::class);
 });
 
 // Authentification (login, register, logout, etc.)
 require __DIR__.'/auth.php';
 
+Route::post('/abonnement/newsletter', [NewsletterController::class, 'subscribe'])->name('abonnement.newsletter');
 
 //Auth::routes();
 

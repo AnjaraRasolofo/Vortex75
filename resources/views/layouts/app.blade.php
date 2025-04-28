@@ -142,10 +142,15 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+                var popup = new bootstrap.Modal(document.getElementById('popupAbonnement'));
+                popup.show();
+            }, 40000); // 40000ms = 40s
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-
 

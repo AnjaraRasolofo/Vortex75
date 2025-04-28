@@ -22,6 +22,6 @@ class ContactController extends Controller
     
         Mail::to('admin@vortex75.com')->send(new ContactMessage($data));
     
-        return back()->with('success', 'Message envoyé avec succès !');
+        return redirect('/')->with('success','Votre message a été envoyé avec succès !');
     }
 }
