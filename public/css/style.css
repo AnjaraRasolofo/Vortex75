@@ -29,7 +29,7 @@
   }
 
   .nav-link.active {
-    color: #0d6efd !important; /* Bleu Bootstrap */
+    color: var(--vortex-red) !important; /* Bleu Bootstrap */
     font-weight: bold;
     text-decoration: underline;
   }
@@ -123,3 +123,59 @@
     color: #0d6efd;
   }
 
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  color: black;
+}
+
+.contact-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+.modal-signal {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-signal:hover {
+  animation: shake 0.5s ease forwards;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Définir l'animation du tremblement */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+#chat-button {
+  position: fixed;
+  bottom: 30px; /* Ajuste la position verticale */
+  right: 30px;  /* Ajuste la position horizontale */
+  z-index: 9999; /* Assure-toi qu'il soit toujours au-dessus des autres éléments */
+}
+
+#chat-button img {
+  width: 80px; /* Ajuste la taille de l'icône */
+  height: 80px;
+  border-radius: 50%;
+  /*background-color: #007bff; /* Couleur de fond de l'icône, si tu veux */
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+#chat-button img:hover {
+  transform: scale(1.1); /* Effet de survol */
+}

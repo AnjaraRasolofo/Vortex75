@@ -37,7 +37,7 @@
                     'desc' => 'Protégez vos investissements avec des stratégies avancées.','btn'=>'Commencer'],
                 ] as $feature)
                     <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="card bg-light h-100 text-center shadow-sm border">
+                        <div class="card feature-card bg-light h-100 text-center shadow-sm border">
                             <div class="card-body">
                                 <div class="display-4 mb-3"> <img src="{{ asset('images/'.$feature['icon']) }}" alt="graduation-icon" class="features-icon"></div>
                                 <h5 class="card-title">{{ $feature['title'] }}</h5>
@@ -170,7 +170,7 @@
             <div class="row g-4">
                 <!-- Email -->
                 <div class="col-md-4">
-                    <div class="card text-center h-100 p-4 shadow-sm">
+                    <div class="card contact-card text-center h-100 p-4 shadow-sm">
                         <img src="{{ asset('images/mail.png') }}" alt="email_icon" class="mx-auto mb-3" style="width: 60px;">
                         <h4 class="mb-2">Abonnez-vous à notre newsletter</h4>
                         <form action="{{ route('newsletter.store') }}" method="POST" class="d-flex flex-column gap-2 mt-3">
@@ -183,7 +183,7 @@
     
                 <!-- WhatsApp -->
                 <div class="col-md-4">
-                    <div class="card text-center h-100 p-4 shadow-sm">
+                    <div class="card contact-card text-center h-100 p-4 shadow-sm">
                         <img src="{{ asset('images/whatsapp.png') }}" alt="whatsapp_icon" class="mx-auto mb-3" style="width: 60px;">
                         <h4 class="mb-2">Assistance WhatsApp</h4>
                         <p class="mb-3">Ajoutez-nous sur WhatsApp pour une réponse instantanée.</p>
@@ -193,7 +193,7 @@
     
                 <!-- Chat -->
                 <div class="col-md-4">
-                    <div class="card text-center h-100 p-4 shadow-sm">
+                    <div class="card contact-card text-center h-100 p-4 shadow-sm">
                         <img src="{{ asset('images/chat.png') }}" alt="chat_icon" class="mx-auto mb-3" style="width: 60px;">
                         <h4 class="mb-2">Chat en direct</h4>
                         <p class="mb-3">Le moyen le plus rapide de contacter nos experts en trading.</p>
@@ -204,9 +204,16 @@
         </div>
     </section>
 
+    <!-- Bouton flottant de chat -->
+    <div id="chat-button">
+        <a href="mailto:contact@tonemail.com">
+            <img src="{{ asset('images/chat4.png') }}" alt="Chat" />
+        </a>
+    </div>
+
 
     <!-- Modal d'abonnement -->
-    <div class="modal fade" id="popupAbonnement" tabindex="-1" aria-labelledby="popupAbonnementLabel" aria-hidden="true">
+    <div class="modal modal-signal fade" id="popupAbonnement" tabindex="-1" aria-labelledby="popupAbonnementLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header bg-primary text-white">
