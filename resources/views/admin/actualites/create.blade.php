@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Créer un article</h1>
-    <a href="{{ route('admin.actualites.show', $actualite->id) }}" class="btn btn-success mb-3" target="_blank">Voir l'article</a>
+    <a href="{{ route('admin.actualites.show', $actualite->id ?? '') }}" class="btn btn-success mb-3" target="_blank">Voir l'article</a>
 
     <form action="{{ route('admin.actualites.store') }}" method="POST" enctype="multipart/form-data">
         @csrf

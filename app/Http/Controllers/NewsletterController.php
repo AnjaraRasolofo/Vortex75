@@ -20,6 +20,7 @@ class NewsletterController extends Controller
 
         $newsletter->notify(new NewsletterConfirmation());
 
-        return back()->with('success','Merci pour votre inscription à notre newsletter !');
+        //return back()->with('success','Merci pour votre inscription à notre newsletter !');
+        return redirect('/')->with('success','Merci pour votre inscription à notre newsletter !');
     }
 }

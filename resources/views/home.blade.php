@@ -26,7 +26,7 @@
                     ['icon' => 'line-graph.png', 'title' => 'Analyse de Marché en temps réel',
                      'desc' => 'Recevez des analyses détaillées des tendances du marché.','btn'=>'En savoir plus','url'=>'/categorie/1'],
                     ['icon' => 'ai.png', 'title' => 'Trading Automatisé',
-                     'desc' => 'Utilisez des bots intelligents pour optimiser vos trades.','btn'=>'Découvrir','url'=>'/categorie/3'],
+                     'desc' => 'Utilisez des bots intelligents pour optimiser vos trades.','btn'=>'Découvrir','url'=>'/experts'],
                     ['icon' => 'graduation.png', 'title' => 'Formation Trading',
                      'desc' => 'Apprenez les stratégies gagnantes pour mieux trader.','btn'=>'Apprendre','url'=>'/categorie/7'],
                     ['icon' => 'loan.png', 'title' => 'Gestion du Capital',

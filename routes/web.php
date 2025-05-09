@@ -10,6 +10,10 @@ use App\Http\Controller\Admin\AdminController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ChatGPTController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\ExpertController;
+use App\Http\Controllers\PanierController;
+use App\Models\Produit;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +70,24 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 require __DIR__.'/auth.php';
 
 Route::post('/abonnement/newsletter', [NewsletterController::class, 'subscribe'])->name('abonnement.newsletter');
+
+//Route::get('/experts', [ExpertController::class, 'index'])->name('experts.index');
+Route::get('/experts', function () {
+    $populaires = Produit::inRandomOrder()->take(12)->get();
+    return view('fronts.experts', compact('populaires'));
+})->name('accueil');
+
+Route::get('/produits/{id}', [ProduitController::class, 'show'])->name('produits.show');
+
+Route::get('/catalogue', [ProduitController::class, 'index'])->name('catalogue');
+
+Route::post('/ajouter-au-panier/{id}', [PanierController::class, 'ajouter'])->name('panier.ajouter');
+
+Route::get('/panier', [PanierController::class, 'voir'])->name('panier.voir');
+
+Route::post('/panier/supprimer/{id}', [PanierController::class, 'supprimer'])->name('panier.supprimer');
+
+Route::post('/panier/vider', [PanierController::class, 'vider'])->name('panier.vider');
 
 //Auth::routes();
 

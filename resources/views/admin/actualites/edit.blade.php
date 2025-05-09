@@ -10,7 +10,7 @@
     <form action="{{ route('admin.actualites.update', $actualite->id ) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        {{-- Titre --}}ls
+        {{-- Titre --}}
         
         <div class="mb-3">
             <label for="titre" class="form-label">Titre</label>

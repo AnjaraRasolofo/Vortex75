@@ -11,7 +11,7 @@ class Categorie extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nom', 'description'];
+    protected $fillable = ['nom', 'description', 'slug'];
 
     public function actualites() // ou tutorials, selon ton nom
     {
