@@ -44,14 +44,14 @@
                             </div>
                             <div class="card-footer d-flex justify-content-end gap-2">
                                 {{-- Bouton fiche produit --}}
-                                <a href="{{ route('produits.show', $produit->id) }}" class="btn btn-sm btn-outline-secondary" style="height:30px;">
+                                <a href="{{ route('produits.show', $produit->id) }}" class="btn btn-sm btn-outline-secondary">
                                     Voir
                                 </a>
                             
                                 {{-- Bouton ajouter au panier --}}
                                 <form action="{{ route('panier.ajouter', $produit->id) }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-sm btn-outline-primary" style="height:30px;">
+                                    <button type="submit" class="btn btn-sm btn-outline-primary">
                                         Ajouter
                                     </button>
                                 </form>
