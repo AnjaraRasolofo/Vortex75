@@ -159,14 +159,14 @@
   100% { transform: translateX(0); }
 }
 
-#chat-button {
+#chat-toggle {
   position: fixed;
   bottom: 30px; /* Ajuste la position verticale */
   right: 30px;  /* Ajuste la position horizontale */
   z-index: 9999; /* Assure-toi qu'il soit toujours au-dessus des autres éléments */
 }
 
-#chat-button img {
+#chat-toggle img {
   width: 80px; /* Ajuste la taille de l'icône */
   height: 80px;
   border-radius: 50%;
@@ -176,6 +176,6 @@
   transition: transform 0.3s ease-in-out;
 }
 
-#chat-button img:hover {
+#chat-toggle img:hover {
   transform: scale(1.1); /* Effet de survol */
 }

@@ -13,6 +13,7 @@ use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\ExpertController;
 use App\Http\Controllers\PanierController;
+use App\Http\Controllers\MessageController;
 use App\Models\Produit;
 
 /*
@@ -56,6 +57,8 @@ Route::post('/contact', [ContactController::class, 'send'])->name('contact.send'
 
 Route::post('/newsletter', [NewsletterController::class, 'store'])->name('newsletter.store');
 
+Route::post('/messages/send', [MessageController::class, 'sendMessage'])->name('messages.send');
+
 // Utilisateur + roles
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin');
@@ -64,6 +67,12 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('ressources', App\Http\Controllers\Admin\RessourceController::class);
     Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
     Route::resource('newsletters', App\Http\Controllers\Admin\NewsletterController::class);
+
+    
+    Route::get('/admin/messages', [MessageController::class, 'index'])->name('admin.messages');
+    Route::get('/messages/conversation/{userId}', [MessageController::class, 'getConversation'])->name('messages.conversation');
+
+    Route::post('/messages/{message}/reply', [MessageController::class, 'reply'])->name('messages.reply');
 });
 
 // Authentification (login, register, logout, etc.)

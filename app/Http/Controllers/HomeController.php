@@ -8,6 +8,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+
+        $adminId = User::where('role', 'admin')->first()->id;
+        return view('home', compact('adminId'));
+
     }
 }

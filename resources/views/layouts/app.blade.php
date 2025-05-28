@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -142,14 +143,104 @@
             </div>
         </div>
     </footer>
+
+    <!-- Bouton flottant de chat -->
+    <div id="chat-toggle">
+            <img src="{{ asset('images/chat4.png') }}" alt="Chat" />
+    </div>
+
+    <!-- Boîte de chat -->
+    <div id="chat-box" style="display: none; position: fixed; bottom: 120px; right: 20px; width: 300px; height: 400px; background: white; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); z-index: 1000;">
+        <div style="background: #007bff; color: white; padding: 10px; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+            <strong>Messagerie</strong>
+            <span id="chat-close" style="float: right; cursor: pointer;">&times;</span>
+        </div>
+        <div id="messagesContainer" style="padding: 10px; height: 290px; overflow-y: auto;">
+            <!-- Messages ici -->
+        </div>
+        <form id="messageForm">
+            <div style="padding: 10px; border-top: 1px solid #ccc;">
+                <input type="hidden" name="receiver_id" value="2">
+                <input type="text" id="message" name="message" placeholder="Écrire un message..." style="width: 100%; padding: 5px;">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#chat-toggle').click(function () {
+                $('#chat-box').fadeToggle();
+            });
+
+            $('#chat-close').click(function () {
+                $('#chat-box').fadeOut();
+            });
+
+            $('#message').keypress(function (e) {
+                if (e.which === 13 && $(this).val().trim() !== '') {
+                    const message = $(this).val();
+                    $('#chat-messages').append('<div><strong>Moi:</strong> ' + message + '</div>');
+                    //$(this).val('');
+                    $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
+                }
+            });
+
+            $('#discution-direct').click(function () {
+                $('#chat-box').fadeToggle();
+            });
+
+            $('#messageForm').submit(function (e) {
+                e.preventDefault();
+                const content = $('#message').val().trim();
+
+                if (!content) {
+                    alert("Le message est vide !");
+                    return;
+                }
+
+                $.ajax({
+                    url: '{{ route("messages.send") }}',
+                    method: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        receiver_id: $('input[name="receiver_id"]').val(),
+                        content: content
+                    },
+                    success: function (response) {
+                        $('#messagesContainer').append(
+                            '<div><strong>Moi:</strong> ' + response.message.content + ' <small>' + response.sent_at + '</small></div>'
+                        );
+                        //$('#content').val('');
+                    },
+                    error: function (xhr) {
+                        console.log(xhr.responseJSON);
+                        alert('Erreur : ' + xhr.responseJSON.message);
+                    }
+                });
+            });
+
+        
+        });
+
+    </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+        // Vérifie si l'utilisateur a déjà vu et fermé le popup pendant cette session
+        if (!sessionStorage.getItem("popupAbonnementClosed")) {
             setTimeout(function () {
-                var popup = new bootstrap.Modal(document.getElementById('popupAbonnement'));
+                var popupElement = document.getElementById('popupAbonnement');
+                var popup = new bootstrap.Modal(popupElement);
                 popup.show();
-            }, 40000); // 40000ms = 40s
-        });
+
+                // Quand le popup est fermé, on enregistre l'information
+                popupElement.addEventListener('hidden.bs.modal', function () {
+                    sessionStorage.setItem("popupAbonnementClosed", "true");
+                });
+            }, 40000); // 40 secondes
+        }
+    });
     </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

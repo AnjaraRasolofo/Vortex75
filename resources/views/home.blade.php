@@ -197,20 +197,12 @@
                         <img src="{{ asset('images/chat.png') }}" alt="chat_icon" class="mx-auto mb-3" style="width: 60px;">
                         <h4 class="mb-2">Chat en direct</h4>
                         <p class="mb-3">Le moyen le plus rapide de contacter nos experts en trading.</p>
-                        <button class="btn btn-secondary">Discutez en direct</button>
+                        <button class="btn btn-secondary" id="discution-direct">Discutez en direct</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Bouton flottant de chat -->
-    <div id="chat-button">
-        <a href="mailto:contact@tonemail.com">
-            <img src="{{ asset('images/chat4.png') }}" alt="Chat" />
-        </a>
-    </div>
-
 
     <!-- Modal d'abonnement -->
     <div class="modal modal-signal fade" id="popupAbonnement" tabindex="-1" aria-labelledby="popupAbonnementLabel" aria-hidden="true">
@@ -233,6 +225,5 @@
       </div>
     </div>
   </div>
-  
-    
+   
 @endsection
